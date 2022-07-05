@@ -22,6 +22,6 @@ class HomePageTests(BaseTest):
         input_field.send_keys(Input.search_python)
         self.click_element(YTHomeLocators.search_button)
         expected_url = 'https://www.youtube.com/results?search_query=Python'
-        assert expected_url == self.driver.current_url
+        assert expected_url == self.driver.current_url, f"{self.driver.current_url} differ from expected"
 
 

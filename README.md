@@ -11,7 +11,7 @@ Sample navigation and tests of the YouTube page for videos searched by the keywo
 ### Table of Contents
 
 - [Technologies](#Technologies)
-- [Project Tree](#Files-Structure)
+- [Project Tree](#Project-Tree)
 - [How To Run Tests](#How-To-Run-Tests)
 - [Autho Info](#author-info)
 
@@ -24,6 +24,7 @@ Sample navigation and tests of the YouTube page for videos searched by the keywo
 - pytest 7.1.2
 - selenium 4.3.0
 - allure-pytest 2.9.45
+- webdriver-manager 3.4.2
 
 To install all required libraries, type in terminal:
 ```
@@ -46,21 +47,21 @@ The project structure:
     |
     |---  pages
     |     |--- YT_home_page.py
-    |     `--- YT_video_player.py
+    |     `--- YT_results_list_page.py
     |      
     |--- tests
     |    `---  pages
     |          |--- base_test_class.py
-    |          |--- test_YT_home_page.py
-    |          |--- test_next_YT_video_player.py
-    |          `--- test_searched_YT_video_player.py
+    |          |--- test_01_YT_home_page.py
+    |          `--- test_02_search_results_page.py
     |
     |---  utils
-    |     |--- inputs.py
     |     |--- locators.py
+    |     |--- test_data.py
     |     |--- web_urls.json
     |     `--- web_reader.py
     |
+    |--- conftest.py
     |--- README.md
     `--- requirements.txt
 

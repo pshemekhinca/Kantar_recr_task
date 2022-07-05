@@ -1,2 +1,3 @@
 class Input:
-    search_python = 'Python'
+    search_keyword = 'Python'
+

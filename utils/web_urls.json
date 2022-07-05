@@ -1,4 +1,6 @@
 {
     "__urls__": "__all urls for pages used in project__",
-    "you_tube_url": "https://www.youtube.com"
+    "yt_home_url": "https://www.youtube.com",
+    "yt_results_url": "https://www.youtube.com/results?search_query="
+
 }
