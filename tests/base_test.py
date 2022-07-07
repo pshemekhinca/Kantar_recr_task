@@ -202,12 +202,14 @@ class BaseTest(unittest.TestCase):
         adv_player = self.driver.find_element(By.XPATH, SelectedVideoLocators.advert_counter)
         while adv_player:
             try:
-                self.driver.find_element(By.XPATH, SelectedVideoLocators.advert_counter)
+                # self.driver.find_element(By.XPATH, SelectedVideoLocators.advert_counter)
+                self.driver.find_element(By.XPATH, SelectedVideoLocators.skip_advert_button)
             except NoSuchElementException:
                 break
 
     def skip_adverts(self):
         """Skip pre-loaded adverts after 'Skip' button appears"""
+        self.play_pause_video()
         self.driver.find_element(By.XPATH, SelectedVideoLocators.advert_counter)
         try:
             WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, SelectedVideoLocators.skip_advert_button)))
@@ -221,6 +223,7 @@ class BaseTest(unittest.TestCase):
             :param given_time: for play in seconds
         """
         sleep(given_time+1)
+        self.play_pause_video()
 
     def visibility_of_element_wait(self, driver, element_xpath, timeout=10) -> WebElement:
         """Waits until element specified by xpath is visible on page

@@ -28,14 +28,12 @@ class ListResultsPage(BaseTest):
         assert clicked_video_title == player_video_title, f"{clicked_video_title} differ from {player_video_title}"
 
     def test_TC_16_play_first_non_advert_video_from_side_list(self):
-        """Opens the first video of the side list"""
+        """Opens the first video of the side list and plays it for given time [here 10 sec case]"""
         self.click_nth_list_element(SelectedVideoLocators.first_side_video, 0)
         self.visibility_of_element_wait(self.driver, SelectedVideoLocators.advert_counter)
         self.skip_adverts()
         self.play_video_time(10)
+        self.visibility_of_element_wait(self.driver, SelectedVideoLocators.current_play_time)
         current_time = self.driver.find_element(By.XPATH, SelectedVideoLocators.current_play_time).text
-        print(current_time)
-        sec = current_time[-2:]
-        print(sec)
-        assert int(sec) == 10
+        assert current_time == '0:10'
 
