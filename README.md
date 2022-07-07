@@ -53,13 +53,15 @@ The project structure:
     |    `---  pages
     |          |--- base_test_class.py
     |          |--- test_01_YT_home_page.py
-    |          `--- test_02_search_results_page.py
+    |          |--- test_02_YT_search_results_page.py
+    |          `--- test_03_YT_next_video_play.py
     |
     |---  utils
+    |     |--- json_reader.py
     |     |--- locators.py
     |     |--- test_data.py
-    |     |--- web_urls.json
-    |     `--- web_reader.py
+    |     |--- video_info.json
+    |     `--- web_urls.json
     |
     |--- conftest.py
     |--- README.md

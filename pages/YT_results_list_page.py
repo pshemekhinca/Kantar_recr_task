@@ -1,9 +1,9 @@
-from utils import web_reader
+from utils import json_reader
 
 
 class ResultsListPage:
     def __init__(self, driver):
-        web = web_reader.load()
+        web = json_reader.load('web_urls.json')
         self.url = web["yt_results_url"]
         self.driver = driver
 

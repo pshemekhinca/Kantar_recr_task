@@ -1,5 +1,7 @@
+from selenium.webdriver.common.by import By
+
 from tests.base_test import BaseTest
-from utils.locators import YTHomeLocators
+from utils.locators import YTHomeLocators, ResultsListLocators
 from utils.test_data import Input
 
 
@@ -17,11 +19,9 @@ class HomePageTests(BaseTest):
     def test_search_result_for_Python_keyword_TC_02(self):
         """Verify if entered keyword search, returns url for search results"""
         self.visibility_of_element_wait(self.driver, YTHomeLocators.search_box)
-        input_field = self.visibility_of_element_wait(self.driver, YTHomeLocators.search_box)
-        input_field.click()
-        input_field.send_keys(Input.search_python)
-        self.click_element(YTHomeLocators.search_button)
-        expected_url = 'https://www.youtube.com/results?search_query=Python'
+        self.enter_data_and_click(YTHomeLocators.search_box, Input.search_keyword, YTHomeLocators.search_button)
+        self.visibility_of_element_wait(self.driver, ResultsListLocators.found_no_advert)
+        expected_url = f'https://www.youtube.com/results?search_query={Input.search_keyword}'
         assert expected_url == self.driver.current_url, f"{self.driver.current_url} differ from expected"
 
 
