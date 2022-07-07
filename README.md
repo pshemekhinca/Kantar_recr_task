@@ -45,6 +45,8 @@ The project structure:
     
     Kantar_recr_task
     |
+    |---  assets <dir for report css file>
+    |
     |---  pages
     |     |--- YT_home_page.py
     |     `--- YT_results_list_page.py
@@ -65,6 +67,7 @@ The project structure:
     |
     |--- conftest.py
     |--- README.md
+    |--- report.html <pytest generated html test report>
     `--- requirements.txt
 
 
@@ -82,17 +85,18 @@ pytest -v tests
 or choosing specific file, add file path;
 
 ```
-pytest -v tests/test_suites/testsuite_all_tests.py 
+pytest -v tests/name_for_chosen_test.py 
 ```
 
-- To screen Allure tests report, prepare report data:
+- To start tests with report output:
 ```
-python -m pytest tests/test_suites/testsuite_all_tests.py --alluredir ./results
+pytest --html=report.html  
 ```
-- then call to screen it in default web browser
+- To open report, run file:
 ```
-libs/allure-2.13.9/bin/allure serve ./results  
+report.html  
 ```
+
 [Back to the Top ^](#Table-of-Contents)
 
 ---
